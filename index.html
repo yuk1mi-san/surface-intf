@@ -201,11 +201,7 @@
       border-color: rgba(34,211,238,.25);
     }
 
-    .cat-panels{
-      margin-top:14px;
-      display:grid;
-      gap:14px;
-    }
+    .cat-panels{ margin-top:14px; display:grid; gap:14px; }
     .panel{display:none}
     .panel.active{display:block}
 
@@ -252,7 +248,7 @@
       display:block;
     }
 
-    /* ✅ Invisible nick block */
+    /* ✅ Invisible nick block (FIX) */
     .nick-box{
       margin-top:14px;
       padding:14px;
@@ -269,10 +265,7 @@
       align-items:center;
       justify-content:space-between;
     }
-    .nick-title{
-      font-weight:900;
-      color:var(--text);
-    }
+    .nick-title{ font-weight:900; color:var(--text); }
     .nick-symbol{
       padding:10px 12px;
       border-radius:12px;
@@ -281,6 +274,10 @@
       font-size:18px;
       user-select:all;
       word-break:break-all;
+
+      /* важно для скрытых символов */
+      direction:ltr;
+      unicode-bidi:isolate;
     }
     .copy-btn{
       cursor:pointer;
@@ -293,10 +290,7 @@
       white-space:nowrap;
     }
     .copy-btn:active{transform: translateY(1px);}
-    .nick-hint{
-      font-size:12px;
-      color:var(--muted);
-    }
+    .nick-hint{ font-size:12px; color:var(--muted); }
   </style>
 </head>
 
@@ -413,7 +407,7 @@
           </div>
         </section>
 
-        <!-- RIGHT CARD: QUICK SUMMARY -->
+        <!-- RIGHT CARD -->
         <aside class="card">
           <div data-lang="ru">
             <h2>✨ Что внутри</h2>
@@ -446,7 +440,7 @@
       </div>
     </header>
 
-    <!-- CATEGORIES (7 tabs) -->
+    <!-- CATEGORIES -->
     <section class="cats" aria-label="Categories">
       <ul class="cat-tabs" role="tablist" aria-label="Info categories">
         <li><button id="tab-howto" class="cat-btn active" data-tab="howto" role="tab" aria-controls="panel-howto" aria-selected="true">👻 Невидимый ник Steam</button></li>
@@ -459,48 +453,41 @@
       </ul>
 
       <div class="cat-panels">
-        <!-- ✅ HOWTO with invisible nick + copy button -->
+        <!-- HOWTO -->
         <div class="panel card active" id="panel-howto" role="tabpanel" aria-labelledby="tab-howto">
           <div data-lang="ru">
             <h3 class="title">👻 Невидимый ник Steam</h3>
             <div class="info-block">
               <div class="info-line"><span class="ic">1️⃣</span><span>Зайдите в настройки профиля Steam</span></div>
               <div class="info-line"><span class="ic">2️⃣</span><span>Удалите старый ник</span></div>
-              <div class="info-line"><span class="ic">3️⃣</span><span>Скопируйте специальный символ (он ниже) и вставьте в поле ника</span></div>
-              
+              <div class="info-line"><span class="ic">3️⃣</span><span>Скопируйте специальный символ (ниже) и вставьте в поле ника</span></div>
               <div class="info-line"><span class="ic">4️⃣</span><span>Сохраните изменения — готово ✅</span></div>
 
               <div class="nick-box">
-  <div class="nick-row">
-    <div class="nick-title">Невидимый символ (копируй):</div>
-    <button class="copy-btn" id="copyNickRu">Скопировать</button>
-  </div>
+                <div class="nick-row">
+                  <div class="nick-title">Невидимый символ (копируй):</div>
+                  <button class="copy-btn" type="button" id="copyNickRu">Скопировать</button>
+                </div>
 
-  <!-- ✅ РАБОЧИЙ НЕВИДИМЫЙ НИК -->
-  <div class="nick-symbol" id="invisibleNick">ㅤ</div>
+                <!-- preview -->
+                <div class="nick-symbol" id="nickPreviewRu">( … )</div>
 
-  <div class="nick-hint">
-    Если Steam не принимает — вставь символ 2 раза.
-  </div>
-</div>
+                <div class="nick-row" style="justify-content:flex-start;">
+                  <button class="copy-btn" type="button" id="copyNickAltRu">Запасной символ (ㅤ)</button>
+                </div>
 
-<div class="info-line">🖼️ Пример как это выглядит:</div>
-<img src="assets/steam-step1.png">
-<img src="assets/steam-step2.png">
+                <div class="nick-hint">
+                  Если Steam не принимает — вставь символ 2 раза.
+                </div>
+              </div>
 
-</div>
-</div>
-
-<script>
-const btn=document.getElementById("copyNickRu");
-const nick="ㅤ"; // ← РАБОЧИЙ СИМВОЛ
-
-btn.addEventListener("click",()=>{
-  navigator.clipboard.writeText(nick);
-  btn.textContent="Скопировано ✓";
-  setTimeout(()=>btn.textContent="Скопировать",1200);
-});
-</script>
+              <div class="info-line"><span class="ic">🖼️</span><span>Пример как это выглядит:</span></div>
+              <div class="howto-images">
+                <img src="assets/steam-step1.png" alt="Пример 1" loading="lazy">
+                <img src="assets/steam-step2.png" alt="Пример 2" loading="lazy">
+              </div>
+            </div>
+          </div>
 
           <div data-lang="en">
             <h3 class="title">👻 Invisible Steam nickname</h3>
@@ -516,10 +503,14 @@ btn.addEventListener("click",()=>{
                   <button class="copy-btn" type="button" id="copyNickEn">Copy</button>
                 </div>
 
-                <div class="nick-symbol" id="invisibleNickEn">⁧⁧</div>
+                <div class="nick-symbol" id="nickPreviewEn">( … )</div>
+
+                <div class="nick-row" style="justify-content:flex-start;">
+                  <button class="copy-btn" type="button" id="copyNickAltEn">Alt symbol (ㅤ)</button>
+                </div>
 
                 <div class="nick-hint">
-                  If Steam rejects it — try adding a normal space at the end or paste the symbol twice.
+                  If Steam rejects it — paste the symbol twice.
                 </div>
               </div>
 
@@ -532,7 +523,7 @@ btn.addEventListener("click",()=>{
           </div>
         </div>
 
-        <!-- other panels unchanged -->
+        <!-- other panels (как у тебя) -->
         <div class="panel card" id="panel-achievements" role="tabpanel" aria-labelledby="tab-achievements">
           <div data-lang="ru">
             <h3 class="title">🖤 Накрутка достижений</h3>
@@ -636,6 +627,7 @@ btn.addEventListener("click",()=>{
             </div>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -644,6 +636,57 @@ btn.addEventListener("click",()=>{
       <span data-lang="en">✨ Steam Info Hub • Yukimi2208</span>
     </div>
   </div>
+
+  <script>
+    // Language switch
+    const btnRu = document.getElementById('btn-ru');
+    const btnEn = document.getElementById('btn-en');
+
+    function setLang(lang){
+      document.body.classList.toggle('lang-ru', lang === 'ru');
+      document.body.classList.toggle('lang-en', lang === 'en');
+
+      btnRu.classList.toggle('active', lang === 'ru');
+      btnEn.classList.toggle('active', lang === 'en');
+
+      btnRu.setAttribute('aria-selected', lang === 'ru');
+      btnEn.setAttribute('aria-selected', lang === 'en');
+
+      document.documentElement.lang = (lang === 'ru') ? 'ru' : 'en';
+      localStorage.setItem('site_lang', lang);
+    }
+
+    btnRu.addEventListener('click', () => setLang('ru'));
+    btnEn.addEventListener('click', () => setLang('en'));
+
+    const savedLang = localStorage.getItem('site_lang');
+    if (savedLang === 'en' || savedLang === 'ru') setLang(savedLang);
+    else setLang('ru');
+
+    // ===== INVISIBLE NICK (FIX) =====
+    const INVISIBLE_MAIN = "\u2067\u2067"; // ⁧⁧ (как в гайде)
+    const INVISIBLE_ALT  = "\u3164";       // ㅤ (запасной)
+
+    function copyText(text){
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      document.execCommand('copy');
+      ta.remove();
+      return Promise.resolve();
+    }
+
+    function bindCopy(btnId, text){
+      const btn = document.getElementById(btnId);
+      if (!btn) return
+
 
   <script>
     // Language switch
