@@ -8,7 +8,6 @@
   <meta name="theme-color" content="#0b0f17">
   <link rel="icon" href="assets/5cff27ed3117ec37654d60e06c951281d07be7ed_full.jpg">
 
-
   <style>
     :root{
       --bg:#0b0f17; --card:#111827; --card2:#0f172a; --text:#e5e7eb; --muted:#9ca3af;
@@ -170,7 +169,7 @@
       flex:0 0 auto;
     }
 
-    /* Categories (tabs) — FIXED */
+    /* Categories (tabs) */
     .cats{ margin-top:16px; }
     .cat-tabs{
       display:flex;
@@ -179,7 +178,7 @@
       margin:14px 0 0;
       padding:0;
       list-style:none;
-      justify-content:center; /* ✅ красиво по центру */
+      justify-content:center;
     }
     .cat-tabs li{flex:0 0 auto;}
     .cat-tabs button{
@@ -238,6 +237,20 @@
     body.lang-en [data-lang="en"]{display:inline}
     body.lang-ru div[data-lang="ru"]{display:block}
     body.lang-en div[data-lang="en"]{display:block}
+
+    /* ✅ Images inside "howto" panel */
+    .howto-images{
+      margin-top:10px;
+      display:grid;
+      gap:12px;
+    }
+    .howto-images img{
+      width:100%;
+      border-radius:14px;
+      border:1px solid var(--border);
+      box-shadow: var(--shadow);
+      display:block;
+    }
   </style>
 </head>
 
@@ -400,28 +413,44 @@
       </ul>
 
       <div class="cat-panels">
+        <!-- ✅ HOWTO with images -->
         <div class="panel card active" id="panel-howto" role="tabpanel" aria-labelledby="tab-howto">
           <div data-lang="ru">
             <h3 class="title">👻 Невидимый ник Steam</h3>
             <div class="info-block">
               <div class="info-line"><span class="ic">1️⃣</span><span>Зайдите в настройки профиля Steam</span></div>
-              <div class="info-line"><span class="ic">2️⃣</span><span>Удалите старый ник</b></span></div>
-              <div class="info-line"><span class="ic">3️⃣</span><span>Скопируйте специальный символ (он представлен ниже)</b></span></div>
+              <div class="info-line"><span class="ic">2️⃣</span><span>Удалите старый ник</span></div>
+              <div class="info-line"><span class="ic">3️⃣</span><span>Скопируйте специальный символ (он представлен ниже)</span></div>
               <div class="info-line"><span class="ic">4️⃣</span><span>Сохраните изменения и готово – невидимый ник для CS2, Dota 2, Steam готов.</span></div>
+
+              <div class="info-line"><span class="ic">🖼️</span><span>Пример как это выглядит:</span></div>
+
+              <div class="howto-images">
+                <img src="assets/steam-step1.png" alt="Пример 1" loading="lazy">
+                <img src="assets/steam-step2.png" alt="Пример 2" loading="lazy">
+              </div>
             </div>
           </div>
 
           <div data-lang="en">
             <h3 class="title">👻 Invisible Steam nickname</h3>
             <div class="info-block">
-              <div class="info-line"><span class="ic">1️⃣</span><span>Open Steam licenses page: <a class="link" href="https://store.steampowered.com/account/licenses/" target="_blank" rel="noopener">account/licenses</a></span></div>
-              <div class="info-line"><span class="ic">2️⃣</span><span>Press <b>F12</b> → open <b>Console</b></span></div>
-              <div class="info-line"><span class="ic">3️⃣</span><span>If paste is blocked — type <b>allow pasting</b></span></div>
-              <div class="info-line"><span class="ic">4️⃣</span><span>Then paste the needed command (if you have it).</span></div>
+              <div class="info-line"><span class="ic">1️⃣</span><span>Open profile settings in Steam</span></div>
+              <div class="info-line"><span class="ic">2️⃣</span><span>Remove your current nickname</span></div>
+              <div class="info-line"><span class="ic">3️⃣</span><span>Copy the special symbol (shown below)</span></div>
+              <div class="info-line"><span class="ic">4️⃣</span><span>Save changes — invisible nickname is ready for CS2 / Dota 2 / Steam.</span></div>
+
+              <div class="info-line"><span class="ic">🖼️</span><span>Example:</span></div>
+
+              <div class="howto-images">
+                <img src="assets/steam-step1.png" alt="Example 1" loading="lazy">
+                <img src="assets/steam-step2.png" alt="Example 2" loading="lazy">
+              </div>
             </div>
           </div>
         </div>
 
+        <!-- other panels unchanged -->
         <div class="panel card" id="panel-achievements" role="tabpanel" aria-labelledby="tab-achievements">
           <div data-lang="ru">
             <h3 class="title">🖤 Накрутка достижений</h3>
@@ -430,7 +459,6 @@
               <div class="info-line"><span class="ic">🧾</span><span>Поддержка Steam: <a class="link" href="https://help.steampowered.com/" target="_blank" rel="noopener">help.steampowered.com</a></span></div>
             </div>
           </div>
-
           <div data-lang="en">
             <h3 class="title">🖤 Achievement unlock</h3>
             <div class="info-block">
@@ -448,7 +476,6 @@
               <div class="info-line"><span class="ic">🔗</span><span>Маркет Steam: <a class="link" href="https://steamcommunity.com/market/" target="_blank" rel="noopener">steamcommunity.com/market</a></span></div>
             </div>
           </div>
-
           <div data-lang="en">
             <h3 class="title">💎 Cheap Steam cards</h3>
             <div class="info-block">
@@ -466,7 +493,6 @@
               <div class="info-line"><span class="ic">🧾</span><span>Оформление профиля: <a class="link" href="https://steamcommunity.com/my/edit/info" target="_blank" rel="noopener">steamcommunity.com/my/edit/info</a></span></div>
             </div>
           </div>
-
           <div data-lang="en">
             <h3 class="title">🌸 Free frames</h3>
             <div class="info-block">
@@ -484,7 +510,6 @@
               <div class="info-line"><span class="ic">🔗</span><span>Инвентарь: <a class="link" href="https://steamcommunity.com/my/inventory/" target="_blank" rel="noopener">steamcommunity.com/my/inventory</a></span></div>
             </div>
           </div>
-
           <div data-lang="en">
             <h3 class="title">✨ GIF avatars • Stickers</h3>
             <div class="info-block">
@@ -502,7 +527,6 @@
               <div class="info-line"><span class="ic">⚠️</span><span>Ставь только из официальных магазинов браузера.</span></div>
             </div>
           </div>
-
           <div data-lang="en">
             <h3 class="title">🧩 Steam extensions</h3>
             <div class="info-block">
@@ -521,7 +545,6 @@
               <div class="info-line"><span class="ic">🌐</span><span><a class="link" href="https://store.steampowered.com/account/licenses/" target="_blank" rel="noopener">Лицензии аккаунта</a></span></div>
             </div>
           </div>
-
           <div data-lang="en">
             <h3 class="title">🌐 Useful sites</h3>
             <div class="info-block">
@@ -604,6 +627,7 @@
   </script>
 </body>
 </html>
+
 
 
 
