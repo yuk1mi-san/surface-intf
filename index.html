@@ -467,29 +467,40 @@
               <div class="info-line"><span class="ic">1️⃣</span><span>Зайдите в настройки профиля Steam</span></div>
               <div class="info-line"><span class="ic">2️⃣</span><span>Удалите старый ник</span></div>
               <div class="info-line"><span class="ic">3️⃣</span><span>Скопируйте специальный символ (он ниже) и вставьте в поле ника</span></div>
+              
               <div class="info-line"><span class="ic">4️⃣</span><span>Сохраните изменения — готово ✅</span></div>
 
               <div class="nick-box">
-                <div class="nick-row">
-                  <div class="nick-title">Невидимый символ (копируй):</div>
-                  <button class="copy-btn" type="button" id="copyNickRu">Скопировать</button>
-                </div>
+  <div class="nick-row">
+    <div class="nick-title">Невидимый символ (копируй):</div>
+    <button class="copy-btn" id="copyNickRu">Скопировать</button>
+  </div>
 
-                <!-- ✅ ВОТ СЮДА ВСТАВЛЕН ТВОЙ НЕВИДИМЫЙ НИК -->
-                <div class="nick-symbol" id="invisibleNick">⁧⁧</div>
+  <!-- ✅ РАБОЧИЙ НЕВИДИМЫЙ НИК -->
+  <div class="nick-symbol" id="invisibleNick">ㅤ</div>
 
-                <div class="nick-hint">
-                  Если Steam не принимает — попробуй добавить обычный пробел в конце или вставить символ 2 раза.
-                </div>
-              </div>
+  <div class="nick-hint">
+    Если Steam не принимает — вставь символ 2 раза.
+  </div>
+</div>
 
-              <div class="info-line"><span class="ic">🖼️</span><span>Пример как это выглядит:</span></div>
-              <div class="howto-images">
-                <img src="assets/steam-step1.png" alt="Пример 1" loading="lazy">
-                <img src="assets/steam-step2.png" alt="Пример 2" loading="lazy">
-              </div>
-            </div>
-          </div>
+<div class="info-line">🖼️ Пример как это выглядит:</div>
+<img src="assets/steam-step1.png">
+<img src="assets/steam-step2.png">
+
+</div>
+</div>
+
+<script>
+const btn=document.getElementById("copyNickRu");
+const nick="ㅤ"; // ← РАБОЧИЙ СИМВОЛ
+
+btn.addEventListener("click",()=>{
+  navigator.clipboard.writeText(nick);
+  btn.textContent="Скопировано ✓";
+  setTimeout(()=>btn.textContent="Скопировать",1200);
+});
+</script>
 
           <div data-lang="en">
             <h3 class="title">👻 Invisible Steam nickname</h3>
