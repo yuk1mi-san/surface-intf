@@ -58,21 +58,23 @@
       background: rgba(167,139,250,.16);
     }
 
-    /* title row: заголовок слева, RU/EN справа */
+    /* title row */
     .title-row{
       display:flex;
       align-items:center;
       justify-content:space-between;
       gap:12px;
     }
-    .title-row .lang{flex:0 0 auto}
+    @media (max-width:620px){
+      .title-row{flex-wrap:wrap; align-items:flex-start;}
+      .title-row .lang{margin-top:6px;}
+    }
 
     h1{margin:10px 0 6px;font-size:26px}
     .subtitle{margin:0;color:var(--muted)}
     .meta{margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:14px}
     .meta b{color:var(--text);font-weight:600}
 
-    /* hero-head: одна колонка (картинки нет) */
     .hero-head{
       display:grid;
       grid-template-columns: 1fr;
@@ -168,24 +170,29 @@
       flex:0 0 auto;
     }
 
-    /* Categories (tabs) */
+    /* Categories (tabs) — FIXED */
     .cats{ margin-top:16px; }
     .cat-tabs{
       display:flex;
       flex-wrap:wrap;
       gap:10px;
-      margin:0;
+      margin:14px 0 0;
       padding:0;
       list-style:none;
+      justify-content:center; /* ✅ красиво по центру */
     }
+    .cat-tabs li{flex:0 0 auto;}
     .cat-tabs button{
       cursor:pointer;
       border:1px solid var(--border);
       background: rgba(255,255,255,.03);
       color: var(--muted);
-      padding:10px 12px;
+      padding:9px 12px;
       border-radius:999px;
       font-weight:800;
+      font-size:13px;
+      line-height:1;
+      white-space:nowrap;
       transition: transform .08s ease, opacity .08s ease, background .08s ease;
     }
     .cat-tabs button:hover{opacity:.95; transform: translateY(-1px);}
@@ -239,7 +246,6 @@
     <header class="hero">
       <div class="hero-head">
         <div>
-          <!-- ОДНА общая строка: заголовок + RU/EN справа -->
           <div class="title-row">
             <h1>
               <span data-lang="ru">✨ Полезная Steam-инфа по категориям</span>
@@ -350,48 +356,49 @@
 
         <!-- RIGHT CARD: QUICK SUMMARY -->
         <aside class="card">
-  <div data-lang="ru">
-    <h2>✨ Что внутри</h2>
-    <ul class="bullet">
-      <li><span class="ic">📚</span><span><b>7 категорий</b> с инструкциями и ссылками:</span></li>
-      <li><span class="ic">👻</span><span><b>Невидимый ник Steam</b></span></li>
-      <li><span class="ic">🖤</span><span><b>Накрутка достижений</b></span></li>
-      <li><span class="ic">💎</span><span><b>Дешёвые карточки Steam</b></span></li>
-      <li><span class="ic">🌸</span><span><b>Бесплатные рамки</b></span></li>
-      <li><span class="ic">✨</span><span><b>Гиф-авы • Стикеры</b></span></li>
-      <li><span class="ic">🧩</span><span><b>Расширения для Steam</b></span></li>
-      <li><span class="ic">🌐</span><span><b>Полезные сайты для Steam</b></span></li>
-      <li><span class="ic">🎀</span><span>Сделал: <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">Yukimi2208 / FunPay</a></span></li>
-    </ul>
-  </div>
+          <div data-lang="ru">
+            <h2>✨ Что внутри</h2>
+            <ul class="bullet">
+              <li><span class="ic">📚</span><span><b>7 категорий</b> с инструкциями и ссылками:</span></li>
+              <li><span class="ic">👻</span><span><b>Невидимый ник Steam</b></span></li>
+              <li><span class="ic">🖤</span><span><b>Накрутка достижений</b></span></li>
+              <li><span class="ic">💎</span><span><b>Дешёвые карточки Steam</b></span></li>
+              <li><span class="ic">🌸</span><span><b>Бесплатные рамки</b></span></li>
+              <li><span class="ic">✨</span><span><b>Гиф-авы • Стикеры</b></span></li>
+              <li><span class="ic">🧩</span><span><b>Расширения для Steam</b></span></li>
+              <li><span class="ic">🌐</span><span><b>Полезные сайты для Steam</b></span></li>
+              <li><span class="ic">🎀</span><span>Сделал: <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">Yukimi2208 / FunPay</a></span></li>
+            </ul>
+          </div>
 
-  <div data-lang="en">
-    <h2>✨ What’s inside</h2>
-    <ul class="bullet">
-      <li><span class="ic">📚</span><span><b>7 categories</b> with guides and useful links:</span></li>
-      <li><span class="ic">👻</span><span><b>Invisible Steam nickname</b></span></li>
-      <li><span class="ic">🖤</span><span><b>Achievement unlock</b></span></li>
-      <li><span class="ic">💎</span><span><b>Cheap Steam cards</b></span></li>
-      <li><span class="ic">🌸</span><span><b>Free frames</b></span></li>
-      <li><span class="ic">✨</span><span><b>GIF avatars • Stickers</b></span></li>
-      <li><span class="ic">🧩</span><span><b>Steam extensions</b></span></li>
-      <li><span class="ic">🌐</span><span><b>Useful Steam sites</b></span></li>
-      <li><span class="ic">🎀</span><span>Made by: <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">Yukimi2208 / FunPay</a></span></li>
-    </ul>
-  </div>
-</aside>
+          <div data-lang="en">
+            <h2>✨ What’s inside</h2>
+            <ul class="bullet">
+              <li><span class="ic">📚</span><span><b>7 categories</b> with guides and useful links:</span></li>
+              <li><span class="ic">👻</span><span><b>Invisible Steam nickname</b></span></li>
+              <li><span class="ic">🖤</span><span><b>Achievement unlock</b></span></li>
+              <li><span class="ic">💎</span><span><b>Cheap Steam cards</b></span></li>
+              <li><span class="ic">🌸</span><span><b>Free frames</b></span></li>
+              <li><span class="ic">✨</span><span><b>GIF avatars • Stickers</b></span></li>
+              <li><span class="ic">🧩</span><span><b>Steam extensions</b></span></li>
+              <li><span class="ic">🌐</span><span><b>Useful Steam sites</b></span></li>
+              <li><span class="ic">🎀</span><span>Made by: <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">Yukimi2208 / FunPay</a></span></li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </header>
 
-    <!-- CATEGORIES -->
+    <!-- CATEGORIES (7 tabs) -->
     <section class="cats" aria-label="Categories">
       <ul class="cat-tabs" role="tablist" aria-label="Info categories">
         <li><button id="tab-howto" class="cat-btn active" data-tab="howto" role="tab" aria-controls="panel-howto" aria-selected="true">👻 Невидимый ник Steam</button></li>
         <li><button id="tab-achievements" class="cat-btn" data-tab="achievements" role="tab" aria-controls="panel-achievements" aria-selected="false">🖤 Накрутка достижений</button></li>
         <li><button id="tab-cards" class="cat-btn" data-tab="cards" role="tab" aria-controls="panel-cards" aria-selected="false">💎 Дешёвые карточки Steam</button></li>
         <li><button id="tab-frames" class="cat-btn" data-tab="frames" role="tab" aria-controls="panel-frames" aria-selected="false">🌸 Бесплатные рамки</button></li>
-        <li><button id="tab-gifs" class="cat-btn" data-tab="gifs" role="tab" aria-controls="panel-gifs" aria-selected="false">✨ Накрутка часов в играх Steam</button></li>
+        <li><button id="tab-gifs" class="cat-btn" data-tab="gifs" role="tab" aria-controls="panel-gifs" aria-selected="false">✨ Гиф-авы • Стикеры</button></li>
         <li><button id="tab-extensions" class="cat-btn" data-tab="extensions" role="tab" aria-controls="panel-extensions" aria-selected="false">🧩 Расширения для Steam</button></li>
         <li><button id="tab-sites" class="cat-btn" data-tab="sites" role="tab" aria-controls="panel-sites" aria-selected="false">🌐 Полезные сайты для Steam</button></li>
-        <li><button id="tab-extra" class="cat-btn" data-tab="extra" role="tab" aria-controls="panel-extra" aria-selected="false">🎀 Прочее</button></li>
       </ul>
 
       <div class="cat-panels">
@@ -527,28 +534,6 @@
           </div>
         </div>
 
-        <div class="panel card" id="panel-extra" role="tabpanel" aria-labelledby="tab-extra">
-          <div data-lang="ru">
-            <h3 class="title">🎀 Прочее</h3>
-            <div class="info-block">
-              <div class="info-line"><span class="ic">📝</span><span>Если видите ошибки где-то — пожалуйста, скажите об этом. Если есть что добавить, буду благодарен.</span></div>
-              <div class="info-line"><span class="ic">⭐</span><span>Можете написать положительный отзыв за проделанную работу — спасибо!</span></div>
-              <div class="info-line"><span class="ic">💤</span><span>Обычно доступен: <b>16:00 — 23:00</b></span></div>
-              <div class="info-line"><span class="ic">📌</span><span>Контакт: <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">Yukimi2208 / FunPay</a></span></div>
-            </div>
-          </div>
-
-          <div data-lang="en">
-            <h3 class="title">🎀 Other</h3>
-            <div class="info-block">
-              <div class="info-line"><span class="ic">📝</span><span>If you notice any mistakes — please tell me. If you have something to add, I’ll be grateful.</span></div>
-              <div class="info-line"><span class="ic">⭐</span><span>You can also leave a positive review for the work done — thank you!</span></div>
-              <div class="info-line"><span class="ic">💤</span><span>Usually available: <b>16:00 — 23:00</b></span></div>
-              <div class="info-line"><span class="ic">📌</span><span>Contact: <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">Yukimi2208 / FunPay</a></span></div>
-            </div>
-          </div>
-        </div>
-
       </div>
     </section>
 
@@ -584,7 +569,7 @@
     if (savedLang === 'en' || savedLang === 'ru') setLang(savedLang);
     else setLang('ru');
 
-    // Category tabs (8 categories)
+    // Category tabs
     const tabBtns = document.querySelectorAll('.cat-btn');
 
     const panels = {
@@ -595,7 +580,6 @@
       gifs: document.getElementById('panel-gifs'),
       extensions: document.getElementById('panel-extensions'),
       sites: document.getElementById('panel-sites'),
-      extra: document.getElementById('panel-extra'),
     };
 
     function setTab(key){
