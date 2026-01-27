@@ -238,7 +238,7 @@
     body.lang-ru div[data-lang="ru"]{display:block}
     body.lang-en div[data-lang="en"]{display:block}
 
-    /* ✅ Images inside "howto" panel */
+    /* Images inside "howto" */
     .howto-images{
       margin-top:10px;
       display:grid;
@@ -250,6 +250,52 @@
       border:1px solid var(--border);
       box-shadow: var(--shadow);
       display:block;
+    }
+
+    /* ✅ Invisible nick block */
+    .nick-box{
+      margin-top:14px;
+      padding:14px;
+      border-radius:14px;
+      background: rgba(0,0,0,.25);
+      border:1px solid rgba(255,255,255,.10);
+      display:grid;
+      gap:10px;
+    }
+    .nick-row{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .nick-title{
+      font-weight:900;
+      color:var(--text);
+    }
+    .nick-symbol{
+      padding:10px 12px;
+      border-radius:12px;
+      background: rgba(255,255,255,.05);
+      border:1px dashed rgba(255,255,255,.22);
+      font-size:18px;
+      user-select:all;
+      word-break:break-all;
+    }
+    .copy-btn{
+      cursor:pointer;
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid rgba(34,211,238,.35);
+      background: rgba(34,211,238,.12);
+      color:var(--text);
+      font-weight:900;
+      white-space:nowrap;
+    }
+    .copy-btn:active{transform: translateY(1px);}
+    .nick-hint{
+      font-size:12px;
+      color:var(--muted);
     }
   </style>
 </head>
@@ -413,18 +459,31 @@
       </ul>
 
       <div class="cat-panels">
-        <!-- ✅ HOWTO with images -->
+        <!-- ✅ HOWTO with invisible nick + copy button -->
         <div class="panel card active" id="panel-howto" role="tabpanel" aria-labelledby="tab-howto">
           <div data-lang="ru">
             <h3 class="title">👻 Невидимый ник Steam</h3>
             <div class="info-block">
               <div class="info-line"><span class="ic">1️⃣</span><span>Зайдите в настройки профиля Steam</span></div>
               <div class="info-line"><span class="ic">2️⃣</span><span>Удалите старый ник</span></div>
-              <div class="info-line"><span class="ic">3️⃣</span><span>Скопируйте специальный символ (он представлен ниже)</span></div>
-              <div class="info-line"><span class="ic">4️⃣</span><span>Сохраните изменения и готово – невидимый ник для CS2, Dota 2, Steam готов.</span></div>
+              <div class="info-line"><span class="ic">3️⃣</span><span>Скопируйте специальный символ (он ниже) и вставьте в поле ника</span></div>
+              <div class="info-line"><span class="ic">4️⃣</span><span>Сохраните изменения — готово ✅</span></div>
+
+              <div class="nick-box">
+                <div class="nick-row">
+                  <div class="nick-title">Невидимый символ (копируй):</div>
+                  <button class="copy-btn" type="button" id="copyNickRu">Скопировать</button>
+                </div>
+
+                <!-- ✅ ВОТ СЮДА ВСТАВЛЕН ТВОЙ НЕВИДИМЫЙ НИК -->
+                <div class="nick-symbol" id="invisibleNick">⁧⁧</div>
+
+                <div class="nick-hint">
+                  Если Steam не принимает — попробуй добавить обычный пробел в конце или вставить символ 2 раза.
+                </div>
+              </div>
 
               <div class="info-line"><span class="ic">🖼️</span><span>Пример как это выглядит:</span></div>
-
               <div class="howto-images">
                 <img src="assets/steam-step1.png" alt="Пример 1" loading="lazy">
                 <img src="assets/steam-step2.png" alt="Пример 2" loading="lazy">
@@ -435,13 +494,25 @@
           <div data-lang="en">
             <h3 class="title">👻 Invisible Steam nickname</h3>
             <div class="info-block">
-              <div class="info-line"><span class="ic">1️⃣</span><span>Open profile settings in Steam</span></div>
-              <div class="info-line"><span class="ic">2️⃣</span><span>Remove your current nickname</span></div>
-              <div class="info-line"><span class="ic">3️⃣</span><span>Copy the special symbol (shown below)</span></div>
-              <div class="info-line"><span class="ic">4️⃣</span><span>Save changes — invisible nickname is ready for CS2 / Dota 2 / Steam.</span></div>
+              <div class="info-line"><span class="ic">1️⃣</span><span>Open your Steam profile settings</span></div>
+              <div class="info-line"><span class="ic">2️⃣</span><span>Remove current nickname</span></div>
+              <div class="info-line"><span class="ic">3️⃣</span><span>Copy the special symbol below and paste it as nickname</span></div>
+              <div class="info-line"><span class="ic">4️⃣</span><span>Save changes — done ✅</span></div>
+
+              <div class="nick-box">
+                <div class="nick-row">
+                  <div class="nick-title">Invisible symbol (copy):</div>
+                  <button class="copy-btn" type="button" id="copyNickEn">Copy</button>
+                </div>
+
+                <div class="nick-symbol" id="invisibleNickEn">⁧⁧</div>
+
+                <div class="nick-hint">
+                  If Steam rejects it — try adding a normal space at the end or paste the symbol twice.
+                </div>
+              </div>
 
               <div class="info-line"><span class="ic">🖼️</span><span>Example:</span></div>
-
               <div class="howto-images">
                 <img src="assets/steam-step1.png" alt="Example 1" loading="lazy">
                 <img src="assets/steam-step2.png" alt="Example 2" loading="lazy">
@@ -554,7 +625,6 @@
             </div>
           </div>
         </div>
-
       </div>
     </section>
 
@@ -589,6 +659,40 @@
     const savedLang = localStorage.getItem('site_lang');
     if (savedLang === 'en' || savedLang === 'ru') setLang(savedLang);
     else setLang('ru');
+
+    // ✅ Copy invisible nick buttons
+    const copyRu = document.getElementById('copyNickRu');
+    const copyEn = document.getElementById('copyNickEn');
+
+    function copyText(text){
+      if (navigator.clipboard && window.isSecureContext) {
+        return navigator.clipboard.writeText(text);
+      }
+      // fallback
+      const ta = document.createElement('textarea');
+      ta.value = text;
+      ta.style.position = 'fixed';
+      ta.style.left = '-9999px';
+      document.body.appendChild(ta);
+      ta.focus();
+      ta.select();
+      document.execCommand('copy');
+      ta.remove();
+      return Promise.resolve();
+    }
+
+    if (copyRu){
+      copyRu.addEventListener('click', () => {
+        const v = document.getElementById('invisibleNick').innerText;
+        copyText(v).then(()=> alert('Скопировано!'));
+      });
+    }
+    if (copyEn){
+      copyEn.addEventListener('click', () => {
+        const v = document.getElementById('invisibleNickEn').innerText;
+        copyText(v).then(()=> alert('Copied!'));
+      });
+    }
 
     // Category tabs
     const tabBtns = document.querySelectorAll('.cat-btn');
