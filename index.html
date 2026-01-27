@@ -192,9 +192,7 @@
     }
 
     /* Categories (tabs) */
-    .cats{
-      margin-top:16px;
-    }
+    .cats{ margin-top:16px; }
     .cat-tabs{
       display:flex;
       flex-wrap:wrap;
@@ -234,17 +232,8 @@
       margin:0 0 10px;
     }
 
-    .info-block{
-      display:grid;
-      gap:10px;
-      color:var(--muted);
-    }
-    .info-line{
-      display:flex;
-      gap:10px;
-      align-items:flex-start;
-      line-height:1.45;
-    }
+    .info-block{display:grid;gap:10px;color:var(--muted)}
+    .info-line{display:flex;gap:10px;align-items:flex-start;line-height:1.45}
     .info-line .ic{width:18px;flex:0 0 18px}
     .info-line b{color:var(--text)}
     .link{
@@ -422,121 +411,170 @@
 
     <!-- CATEGORIES -->
     <section class="cats" aria-label="Categories">
-     <ul class="cat-tabs" role="tablist" aria-label="Info categories">
-  <li><button class="cat-btn active" data-tab="howto">👻 Невидимый ник Steam</button></li>
-  <li><button class="cat-btn" data-tab="achievements">🖤 Накрутка достижений</button></li>
-  <li><button class="cat-btn" data-tab="cards">💎 Дешёвые карточки Steam</button></li>
-  <li><button class="cat-btn" data-tab="frames">🌸 Бесплатные рамки</button></li>
-  <li><button class="cat-btn" data-tab="gifs">✨ Гиф-авы • Стикеры</button></li>
-  <li><button class="cat-btn" data-tab="extensions">🧩 Расширения Steam</button></li>
-  <li><button class="cat-btn" data-tab="sites">🌐 Полезные сайты</button></li>
-  <li><button class="cat-btn" data-tab="extra">🎀 Прочее</button></li>
-</ul>
-
-
+      <ul class="cat-tabs" role="tablist" aria-label="Info categories">
+        <li><button id="tab-howto" class="cat-btn active" data-tab="howto" role="tab" aria-controls="panel-howto" aria-selected="true">👻 Невидимый ник Steam</button></li>
+        <li><button id="tab-achievements" class="cat-btn" data-tab="achievements" role="tab" aria-controls="panel-achievements" aria-selected="false">🖤 Накрутка достижений</button></li>
+        <li><button id="tab-cards" class="cat-btn" data-tab="cards" role="tab" aria-controls="panel-cards" aria-selected="false">💎 Дешёвые карточки Steam</button></li>
+        <li><button id="tab-frames" class="cat-btn" data-tab="frames" role="tab" aria-controls="panel-frames" aria-selected="false">🌸 Бесплатные рамки</button></li>
+        <li><button id="tab-gifs" class="cat-btn" data-tab="gifs" role="tab" aria-controls="panel-gifs" aria-selected="false">✨ Гиф-авы • Стикеры</button></li>
+        <li><button id="tab-extensions" class="cat-btn" data-tab="extensions" role="tab" aria-controls="panel-extensions" aria-selected="false">🧩 Расширения Steam</button></li>
+        <li><button id="tab-sites" class="cat-btn" data-tab="sites" role="tab" aria-controls="panel-sites" aria-selected="false">🌐 Полезные сайты</button></li>
+        <li><button id="tab-extra" class="cat-btn" data-tab="extra" role="tab" aria-controls="panel-extra" aria-selected="false">🎀 Прочее</button></li>
+      </ul>
 
       <div class="cat-panels">
-        <!-- HOWTO -->
-        <div class="panel card active" id="panel-howto" role="tabpanel">
+        <!-- 👻 Невидимый ник Steam -->
+        <div class="panel card active" id="panel-howto" role="tabpanel" aria-labelledby="tab-howto">
           <div data-lang="ru">
-            <h3 class="title">📌 Инструкция</h3>
+            <h3 class="title">👻 Невидимый ник Steam</h3>
             <div class="info-block">
               <div class="info-line"><span class="ic">1️⃣</span><span>Откройте страницу лицензий Steam: <a class="link" href="https://store.steampowered.com/account/licenses/" target="_blank" rel="noopener">account/licenses</a></span></div>
               <div class="info-line"><span class="ic">2️⃣</span><span>Нажмите <b>F12</b> → вкладка <b>Console</b></span></div>
               <div class="info-line"><span class="ic">3️⃣</span><span>Если Steam ругается на вставку — введите <b>allow pasting</b></span></div>
-              <div class="info-line"><span class="ic">4️⃣</span><span>Дальше вставляйте нужную команду (если она у вас есть). Я могу оформить её в отдельный блок на сайте.</span></div>
+              <div class="info-line"><span class="ic">4️⃣</span><span>Дальше вставляйте нужную команду (если она у вас есть).</span></div>
             </div>
           </div>
 
           <div data-lang="en">
-            <h3 class="title">📌 Guide</h3>
+            <h3 class="title">👻 Invisible Steam nickname</h3>
             <div class="info-block">
               <div class="info-line"><span class="ic">1️⃣</span><span>Open Steam licenses page: <a class="link" href="https://store.steampowered.com/account/licenses/" target="_blank" rel="noopener">account/licenses</a></span></div>
               <div class="info-line"><span class="ic">2️⃣</span><span>Press <b>F12</b> → open <b>Console</b></span></div>
               <div class="info-line"><span class="ic">3️⃣</span><span>If paste is blocked — type <b>allow pasting</b></span></div>
-              <div class="info-line"><span class="ic">4️⃣</span><span>Then paste the needed command (if you have it). I can format it as a separate block on the site.</span></div>
+              <div class="info-line"><span class="ic">4️⃣</span><span>Then paste the needed command (if you have it).</span></div>
             </div>
           </div>
         </div>
 
-        <!-- FAQ -->
-        <div class="panel card" id="panel-faq" role="tabpanel">
+        <!-- 🖤 Накрутка достижений -->
+        <div class="panel card" id="panel-achievements" role="tabpanel" aria-labelledby="tab-achievements">
           <div data-lang="ru">
-            <h3 class="title">❓ FAQ</h3>
+            <h3 class="title">🖤 Накрутка достижений</h3>
             <div class="info-block">
-              <div class="info-line"><span class="ic">🟣</span><span><b>Почему не активируется?</b> Часто причина — регион, ограничения Steam или недоступность позиции.</span></div>
-              <div class="info-line"><span class="ic">🟣</span><span><b>Нужно ли ждать?</b> Иногда изменения отображаются не сразу — обновите профиль/клиент Steam.</span></div>
-              <div class="info-line"><span class="ic">🟣</span><span><b>Это безопасно?</b> Действуйте аккуратно и не вставляйте подозрительные скрипты.</span></div>
+              <div class="info-line"><span class="ic">⚠️</span><span>Добавь сюда свой гайд/FAQ по достижениям (шаги, ссылки, примечания).</span></div>
+              <div class="info-line"><span class="ic">🧾</span><span>Поддержка Steam: <a class="link" href="https://help.steampowered.com/" target="_blank" rel="noopener">help.steampowered.com</a></span></div>
             </div>
           </div>
 
           <div data-lang="en">
-            <h3 class="title">❓ FAQ</h3>
+            <h3 class="title">🖤 Achievement unlock</h3>
             <div class="info-block">
-              <div class="info-line"><span class="ic">🟣</span><span><b>Why doesn’t it activate?</b> Common reasons: region lock, Steam restrictions, or item unavailable.</span></div>
-              <div class="info-line"><span class="ic">🟣</span><span><b>Do I need to wait?</b> Sometimes changes don’t appear instantly — refresh your profile / Steam client.</span></div>
-              <div class="info-line"><span class="ic">🟣</span><span><b>Is it safe?</b> Be careful and don’t paste suspicious scripts.</span></div>
+              <div class="info-line"><span class="ic">⚠️</span><span>Add your guide/FAQ here (steps, links, notes).</span></div>
+              <div class="info-line"><span class="ic">🧾</span><span>Steam Support: <a class="link" href="https://help.steampowered.com/" target="_blank" rel="noopener">help.steampowered.com</a></span></div>
             </div>
           </div>
         </div>
 
-        <!-- SAFETY -->
-        <div class="panel card" id="panel-safety" role="tabpanel">
+        <!-- 💎 Дешёвые карточки Steam -->
+        <div class="panel card" id="panel-cards" role="tabpanel" aria-labelledby="tab-cards">
           <div data-lang="ru">
-            <h3 class="title">⚠️ Безопасность</h3>
+            <h3 class="title">💎 Дешёвые карточки Steam</h3>
             <div class="info-block">
-              <div class="info-line"><span class="ic">🔒</span><span>Не вводите команды/скрипты из сомнительных источников.</span></div>
-              <div class="info-line"><span class="ic">🛡️</span><span>Не давайте никому доступ к аккаунту / Steam Guard / коду подтверждения.</span></div>
-              <div class="info-line"><span class="ic">🌍</span><span>Если у вас регион <b>Россия (RUB)</b> — часть вещей может быть недоступна.</span></div>
-              <div class="info-line"><span class="ic">🧩</span><span>VPN — только на свой риск. Лучше сначала проверить доступность без него.</span></div>
+              <div class="info-line"><span class="ic">💡</span><span>Сюда можно добавить: как искать дешёвые карточки, советы по покупке и безопасность.</span></div>
+              <div class="info-line"><span class="ic">🔗</span><span>Маркет Steam: <a class="link" href="https://steamcommunity.com/market/" target="_blank" rel="noopener">steamcommunity.com/market</a></span></div>
             </div>
           </div>
 
           <div data-lang="en">
-            <h3 class="title">⚠️ Safety</h3>
+            <h3 class="title">💎 Cheap Steam cards</h3>
             <div class="info-block">
-              <div class="info-line"><span class="ic">🔒</span><span>Don’t run scripts/commands from shady sources.</span></div>
-              <div class="info-line"><span class="ic">🛡️</span><span>Never share account access / Steam Guard / confirmation codes.</span></div>
-              <div class="info-line"><span class="ic">🌍</span><span>If your region is <b>Russia (RUB)</b>, some items may be unavailable.</span></div>
-              <div class="info-line"><span class="ic">🧩</span><span>VPN is at your own risk. First, try without it.</span></div>
+              <div class="info-line"><span class="ic">💡</span><span>Add: how to find cheap cards, buying tips, safety notes.</span></div>
+              <div class="info-line"><span class="ic">🔗</span><span>Steam Market: <a class="link" href="https://steamcommunity.com/market/" target="_blank" rel="noopener">steamcommunity.com/market</a></span></div>
             </div>
           </div>
         </div>
 
-        <!-- LINKS -->
-        <div class="panel card" id="panel-links" role="tabpanel">
+        <!-- 🌸 Бесплатные рамки -->
+        <div class="panel card" id="panel-frames" role="tabpanel" aria-labelledby="tab-frames">
           <div data-lang="ru">
-            <h3 class="title">🔗 Полезные ссылки</h3>
+            <h3 class="title">🌸 Бесплатные рамки</h3>
             <div class="info-block">
-              <div class="info-line"><span class="ic">🌐</span><span><a class="link" href="https://store.steampowered.com/account/licenses/" target="_blank" rel="noopener">Лицензии аккаунта</a></span></div>
+              <div class="info-line"><span class="ic">🎀</span><span>Добавь список бесплатных рамок/способов получения + ссылки на источники.</span></div>
+              <div class="info-line"><span class="ic">🧾</span><span>Оформление профиля: <a class="link" href="https://steamcommunity.com/my/edit/info" target="_blank" rel="noopener">steamcommunity.com/my/edit/info</a></span></div>
+            </div>
+          </div>
+
+          <div data-lang="en">
+            <h3 class="title">🌸 Free frames</h3>
+            <div class="info-block">
+              <div class="info-line"><span class="ic">🎀</span><span>Add free frames list / how to get them + sources.</span></div>
+              <div class="info-line"><span class="ic">🧾</span><span>Edit profile: <a class="link" href="https://steamcommunity.com/my/edit/info" target="_blank" rel="noopener">steamcommunity.com/my/edit/info</a></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✨ Гиф-авы • Стикеры -->
+        <div class="panel card" id="panel-gifs" role="tabpanel" aria-labelledby="tab-gifs">
+          <div data-lang="ru">
+            <h3 class="title">✨ Гиф-авы • Стикеры</h3>
+            <div class="info-block">
+              <div class="info-line"><span class="ic">🖼️</span><span>Сюда: где брать гиф-авы/стикеры и как ставить (шаги + ссылки).</span></div>
+              <div class="info-line"><span class="ic">🔗</span><span>Инвентарь: <a class="link" href="https://steamcommunity.com/my/inventory/" target="_blank" rel="noopener">steamcommunity.com/my/inventory</a></span></div>
+            </div>
+          </div>
+
+          <div data-lang="en">
+            <h3 class="title">✨ GIF avatars • Stickers</h3>
+            <div class="info-block">
+              <div class="info-line"><span class="ic">🖼️</span><span>Add: where to get GIF avatars/stickers and how to apply them.</span></div>
+              <div class="info-line"><span class="ic">🔗</span><span>Inventory: <a class="link" href="https://steamcommunity.com/my/inventory/" target="_blank" rel="noopener">steamcommunity.com/my/inventory</a></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🧩 Расширения Steam -->
+        <div class="panel card" id="panel-extensions" role="tabpanel" aria-labelledby="tab-extensions">
+          <div data-lang="ru">
+            <h3 class="title">🧩 Расширения Steam</h3>
+            <div class="info-block">
+              <div class="info-line"><span class="ic">🧠</span><span>Сюда: список расширений (что делают) + ссылки на магазины расширений.</span></div>
+              <div class="info-line"><span class="ic">⚠️</span><span>Ставь только из официальных магазинов браузера.</span></div>
+            </div>
+          </div>
+
+          <div data-lang="en">
+            <h3 class="title">🧩 Steam extensions</h3>
+            <div class="info-block">
+              <div class="info-line"><span class="ic">🧠</span><span>Add: extensions list (what they do) + official store links.</span></div>
+              <div class="info-line"><span class="ic">⚠️</span><span>Install only from official browser stores.</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 🌐 Полезные сайты -->
+        <div class="panel card" id="panel-sites" role="tabpanel" aria-labelledby="tab-sites">
+          <div data-lang="ru">
+            <h3 class="title">🌐 Полезные сайты</h3>
+            <div class="info-block">
               <div class="info-line"><span class="ic">🧾</span><span><a class="link" href="https://help.steampowered.com/" target="_blank" rel="noopener">Поддержка Steam</a></span></div>
               <div class="info-line"><span class="ic">🔐</span><span><a class="link" href="https://store.steampowered.com/twofactor/manage" target="_blank" rel="noopener">Steam Guard</a></span></div>
+              <div class="info-line"><span class="ic">🌐</span><span><a class="link" href="https://store.steampowered.com/account/licenses/" target="_blank" rel="noopener">Лицензии аккаунта</a></span></div>
             </div>
           </div>
 
           <div data-lang="en">
-            <h3 class="title">🔗 Useful links</h3>
+            <h3 class="title">🌐 Useful sites</h3>
             <div class="info-block">
-              <div class="info-line"><span class="ic">🌐</span><span><a class="link" href="https://store.steampowered.com/account/licenses/" target="_blank" rel="noopener">Account licenses</a></span></div>
               <div class="info-line"><span class="ic">🧾</span><span><a class="link" href="https://help.steampowered.com/" target="_blank" rel="noopener">Steam Support</a></span></div>
               <div class="info-line"><span class="ic">🔐</span><span><a class="link" href="https://store.steampowered.com/twofactor/manage" target="_blank" rel="noopener">Steam Guard</a></span></div>
+              <div class="info-line"><span class="ic">🌐</span><span><a class="link" href="https://store.steampowered.com/account/licenses/" target="_blank" rel="noopener">Account licenses</a></span></div>
             </div>
           </div>
         </div>
 
-        <!-- EXTRA -->
-        <div class="panel card" id="panel-extra" role="tabpanel">
+        <!-- 🎀 Прочее -->
+        <div class="panel card" id="panel-extra" role="tabpanel" aria-labelledby="tab-extra">
           <div data-lang="ru">
-            <h3 class="title">✨ Полезное</h3>
+            <h3 class="title">🎀 Прочее</h3>
             <div class="info-block">
-              <div class="info-line"><span class="ic">🎀</span><span>Если хочешь — добавлю сюда отдельные “гайд-карточки” (например: оформление профиля, витрины, значки, скриншоты).</span></div>
+              <div class="info-line"><span class="ic">🎀</span><span>Если хочешь — добавлю сюда отдельные “гайд-карточки” (оформление профиля, витрины, значки, скриншоты).</span></div>
               <div class="info-line"><span class="ic">💤</span><span>Обычно доступен: <b>16:00 — 23:00</b></span></div>
               <div class="info-line"><span class="ic">📌</span><span>Контакт: <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">Yukimi2208 / FunPay</a></span></div>
             </div>
           </div>
 
           <div data-lang="en">
-            <h3 class="title">✨ Extra</h3>
+            <h3 class="title">🎀 Other</h3>
             <div class="info-block">
               <div class="info-line"><span class="ic">🎀</span><span>If you want — I can add more guide cards here (profile setup, showcases, badges, screenshots, etc.).</span></div>
               <div class="info-line"><span class="ic">💤</span><span>Usually available: <b>16:00 — 23:00</b></span></div>
@@ -576,27 +614,33 @@
     if (savedLang === 'en' || savedLang === 'ru') setLang(savedLang);
     else setLang('ru');
 
-    // Category tabs
+    // Category tabs (8 categories)
     const tabBtns = document.querySelectorAll('.cat-btn');
+
     const panels = {
       howto: document.getElementById('panel-howto'),
-      faq: document.getElementById('panel-faq'),
-      safety: document.getElementById('panel-safety'),
-      links: document.getElementById('panel-links'),
+      achievements: document.getElementById('panel-achievements'),
+      cards: document.getElementById('panel-cards'),
+      frames: document.getElementById('panel-frames'),
+      gifs: document.getElementById('panel-gifs'),
+      extensions: document.getElementById('panel-extensions'),
+      sites: document.getElementById('panel-sites'),
       extra: document.getElementById('panel-extra'),
     };
 
     function setTab(key){
-      // buttons
       tabBtns.forEach(b => {
         const isActive = b.dataset.tab === key;
         b.classList.toggle('active', isActive);
         b.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        b.tabIndex = isActive ? 0 : -1;
       });
-      // panels
+
       Object.entries(panels).forEach(([k, el]) => {
+        if (!el) return;
         el.classList.toggle('active', k === key);
       });
+
       localStorage.setItem('site_tab', key);
     }
 
@@ -608,4 +652,5 @@
   </script>
 </body>
 </html>
+
 
