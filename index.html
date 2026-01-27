@@ -248,7 +248,7 @@
       display:block;
     }
 
-    /* ✅ Invisible nick block (FIX) */
+    /* Invisible nick block */
     .nick-box{
       margin-top:14px;
       padding:14px;
@@ -274,8 +274,6 @@
       font-size:18px;
       user-select:all;
       word-break:break-all;
-
-      /* важно для скрытых символов */
       direction:ltr;
       unicode-bidi:isolate;
     }
@@ -469,11 +467,10 @@
                   <button class="copy-btn" type="button" id="copyNickRu">Скопировать</button>
                 </div>
 
-                <!-- preview -->
-                <div class="nick-symbol" id="nickPreviewRu">(  󠁳  )</div>
+                <div class="nick-symbol" id="nickPreviewRu">(ㅤ)</div>
 
                 <div class="nick-row" style="justify-content:flex-start;">
-                  <button class="copy-btn" type="button" id="copyNickAltRu">Запасной символ ( 󠁳 )</button>
+                  <button class="copy-btn" type="button" id="copyNickAltRu">Запасной символ (ㅤ)</button>
                 </div>
 
                 <div class="nick-hint">
@@ -503,7 +500,7 @@
                   <button class="copy-btn" type="button" id="copyNickEn">Copy</button>
                 </div>
 
-                <div class="nick-symbol" id="nickPreviewEn">( 󠁳 )</div>
+                <div class="nick-symbol" id="nickPreviewEn">(ㅤ)</div>
 
                 <div class="nick-row" style="justify-content:flex-start;">
                   <button class="copy-btn" type="button" id="copyNickAltEn">Alt symbol (ㅤ)</button>
@@ -523,7 +520,6 @@
           </div>
         </div>
 
-        <!-- other panels (как у тебя) -->
         <div class="panel card" id="panel-achievements" role="tabpanel" aria-labelledby="tab-achievements">
           <div data-lang="ru">
             <h3 class="title">🖤 Накрутка достижений</h3>
@@ -638,7 +634,7 @@
   </div>
 
   <script>
-    // Language switch
+    // ===== Language switch =====
     const btnRu = document.getElementById('btn-ru');
     const btnEn = document.getElementById('btn-en');
 
@@ -663,9 +659,9 @@
     if (savedLang === 'en' || savedLang === 'ru') setLang(savedLang);
     else setLang('ru');
 
-    // ===== INVISIBLE NICK (FIX) =====
-    const INVISIBLE_MAIN = "\u2067\u2067"; // ⁧⁧ (как в гайде)
-    const INVISIBLE_ALT  = "\u3164";       // ㅤ (запасной)
+    // ===== Invisible nick copy =====
+    const INVISIBLE_MAIN = "\u2067\u2067"; // ⁧⁧
+    const INVISIBLE_ALT  = "\u3164";       // ㅤ
 
     function copyText(text){
       if (navigator.clipboard && window.isSecureContext) {
@@ -683,74 +679,30 @@
       return Promise.resolve();
     }
 
-    function bindCopy(btnId, text){
+    function bindCopy(btnId, text, okMsg){
       const btn = document.getElementById(btnId);
-      if (!btn) return
-
-
-  <script>
-    // Language switch
-    const btnRu = document.getElementById('btn-ru');
-    const btnEn = document.getElementById('btn-en');
-
-    function setLang(lang){
-      document.body.classList.toggle('lang-ru', lang === 'ru');
-      document.body.classList.toggle('lang-en', lang === 'en');
-
-      btnRu.classList.toggle('active', lang === 'ru');
-      btnEn.classList.toggle('active', lang === 'en');
-
-      btnRu.setAttribute('aria-selected', lang === 'ru');
-      btnEn.setAttribute('aria-selected', lang === 'en');
-
-      document.documentElement.lang = (lang === 'ru') ? 'ru' : 'en';
-      localStorage.setItem('site_lang', lang);
-    }
-
-    btnRu.addEventListener('click', () => setLang('ru'));
-    btnEn.addEventListener('click', () => setLang('en'));
-
-    const savedLang = localStorage.getItem('site_lang');
-    if (savedLang === 'en' || savedLang === 'ru') setLang(savedLang);
-    else setLang('ru');
-
-    // ✅ Copy invisible nick buttons
-    const copyRu = document.getElementById('copyNickRu');
-    const copyEn = document.getElementById('copyNickEn');
-
-    function copyText(text){
-      if (navigator.clipboard && window.isSecureContext) {
-        return navigator.clipboard.writeText(text);
-      }
-      // fallback
-      const ta = document.createElement('textarea');
-      ta.value = text;
-      ta.style.position = 'fixed';
-      ta.style.left = '-9999px';
-      document.body.appendChild(ta);
-      ta.focus();
-      ta.select();
-      document.execCommand('copy');
-      ta.remove();
-      return Promise.resolve();
-    }
-
-    if (copyRu){
-      copyRu.addEventListener('click', () => {
-        const v = document.getElementById('invisibleNick').innerText;
-        copyText(v).then(()=> alert('Скопировано!'));
-      });
-    }
-    if (copyEn){
-      copyEn.addEventListener('click', () => {
-        const v = document.getElementById('invisibleNickEn').innerText;
-        copyText(v).then(()=> alert('Copied!'));
+      if (!btn) return;
+      btn.addEventListener('click', () => {
+        copyText(text).then(() => alert(okMsg));
       });
     }
 
-    // Category tabs
+    // RU buttons
+    bindCopy('copyNickRu', INVISIBLE_MAIN, 'Скопировано!');
+    bindCopy('copyNickAltRu', INVISIBLE_ALT, 'Скопировано!');
+
+    // EN buttons
+    bindCopy('copyNickEn', INVISIBLE_MAIN, 'Copied!');
+    bindCopy('copyNickAltEn', INVISIBLE_ALT, 'Copied!');
+
+    // Optional preview
+    const prevRu = document.getElementById('nickPreviewRu');
+    const prevEn = document.getElementById('nickPreviewEn');
+    if (prevRu) prevRu.textContent = `(${INVISIBLE_MAIN})`;
+    if (prevEn) prevEn.textContent = `(${INVISIBLE_MAIN})`;
+
+    // ===== Category tabs =====
     const tabBtns = document.querySelectorAll('.cat-btn');
-
     const panels = {
       howto: document.getElementById('panel-howto'),
       achievements: document.getElementById('panel-achievements'),
@@ -785,6 +737,7 @@
   </script>
 </body>
 </html>
+
 
 
 
