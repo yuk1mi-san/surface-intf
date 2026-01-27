@@ -37,6 +37,7 @@
       overflow:hidden;
     }
 
+    /* topbar: теперь только точка слева (без RU/EN здесь) */
     .topbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;justify-content:space-between}
     .badge{
       display:inline-flex;gap:10px;align-items:center;
@@ -51,6 +52,8 @@
       background: linear-gradient(135deg, var(--accent), var(--accent2));
       box-shadow: 0 0 0 4px rgba(167,139,250,.14);
     }
+
+    /* language switch */
     .lang{
       display:inline-flex;
       border:1px solid var(--border);
@@ -71,30 +74,27 @@
       background: rgba(167,139,250,.16);
     }
 
+    /* title row: заголовок слева, RU/EN справа на одном уровне */
+    .title-row{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .title-row .lang{flex:0 0 auto}
+
     h1{margin:10px 0 6px;font-size:26px}
     .subtitle{margin:0;color:var(--muted)}
     .meta{margin-top:10px;display:flex;flex-wrap:wrap;gap:10px;color:var(--muted);font-size:14px}
     .meta b{color:var(--text);font-weight:600}
 
-    @media (max-width:900px){
-      .hero-head{grid-template-columns:1fr}
-    }
-
-    .hero-img-card img{
-      width:100%;
-      height:140px;
-      display:block;
-      border-radius:12px;
-      border:1px solid rgba(255,255,255,.10);
-      object-fit: contain;
-      object-position: center;
-      background: rgba(0,0,0,.35);
-      box-shadow: 0 10px 25px rgba(0,0,0,.25);
-    }
-    .hero-img-caption{
-      margin-top:8px;
-      font-size:12px;
-      color:var(--muted);
+    /* hero-head: одна колонка (картинки нет) */
+    .hero-head{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap:14px;
+      margin-top:10px;
+      align-items:start;
     }
 
     .grid{display:grid;grid-template-columns: 1.2fr .8fr;gap:16px;margin-top:14px}
@@ -254,35 +254,48 @@
   <div class="wrap">
     <header class="hero">
       <div class="topbar">
-  <div class="badge"><span class="dot"></span></div>
-
-  <div class="spacer"></div>
-
-  <div class="lang" role="tablist" aria-label="Language switch">
-    <button id="btn-ru" class="active" type="button">RU</button>
-    <button id="btn-en" type="button">EN</button>
-  </div>
-</div>
-
+        <div class="badge"><span class="dot"></span></div>
+      </div>
 
       <div class="hero-head">
         <div>
+          <!-- RU -->
           <div data-lang="ru">
-            <h1>✨ Полезная Steam-инфа по категориям</h1>
+            <div class="title-row">
+              <h1>✨ Полезная Steam-инфа по категориям</h1>
+
+              <!-- язык справа на уровне заголовка -->
+              <div class="lang" role="tablist" aria-label="Language switch">
+                <button id="btn-ru" class="active" type="button" aria-selected="true">RU</button>
+                <button id="btn-en" type="button" aria-selected="false">EN</button>
+              </div>
+            </div>
+
             <p class="subtitle">Нажмите на категорию ниже — и увидите нужные инструкции/FAQ/ссылки.</p>
             <div class="meta">
               <span>Автор: <b>Yukimi2208</b></span>
             </div>
           </div>
 
+          <!-- EN -->
           <div data-lang="en">
-            <h1>✨ Steam useful info by categories</h1>
+            <div class="title-row">
+              <h1>✨ Steam useful info by categories</h1>
+
+              <!-- язык справа на уровне заголовка -->
+              <div class="lang" role="tablist" aria-label="Language switch">
+                <button id="btn-ru" class="active" type="button" aria-selected="true">RU</button>
+                <button id="btn-en" type="button" aria-selected="false">EN</button>
+              </div>
+            </div>
+
             <p class="subtitle">Pick a category below to view guides / FAQ / useful links.</p>
             <div class="meta">
               <span>Author: <b>Yukimi2208</b></span>
             </div>
           </div>
         </div>
+      </div>
 
       <div class="grid">
         <!-- LEFT CARD: SHOP -->
@@ -549,17 +562,18 @@
           <div data-lang="ru">
             <h3 class="title">🎀 Прочее</h3>
             <div class="info-block">
-  <div class="info-line"><span class="ic">📝</span><span>Если видите ошибки где-то — пожалуйста, скажите об этом. Если есть что добавить, буду благодарен.</span></div>
-  <div class="info-line"><span class="ic">⭐</span><span>Можете написать положительный отзыв за проделанную работу — спасибо!</span></div>
-  <div class="info-line"><span class="ic">💤</span><span>Обычно доступен: <b>16:00 — 23:00</b></span></div>
-  <div class="info-line"><span class="ic">📌</span><span>Контакт: <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">Yukimi2208 / FunPay</a></span></div>
-</div>
+              <div class="info-line"><span class="ic">📝</span><span>Если видите ошибки где-то — пожалуйста, скажите об этом. Если есть что добавить, буду благодарен.</span></div>
+              <div class="info-line"><span class="ic">⭐</span><span>Можете написать положительный отзыв за проделанную работу — спасибо!</span></div>
+              <div class="info-line"><span class="ic">💤</span><span>Обычно доступен: <b>16:00 — 23:00</b></span></div>
+              <div class="info-line"><span class="ic">📌</span><span>Контакт: <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">Yukimi2208 / FunPay</a></span></div>
+            </div>
           </div>
 
           <div data-lang="en">
             <h3 class="title">🎀 Other</h3>
             <div class="info-block">
-              <div class="info-line"><span class="ic">🎀</span><span>If you want — I can add more guide cards here (profile setup, showcases, badges, screenshots, etc.).</span></div>
+              <div class="info-line"><span class="ic">📝</span><span>If you notice any mistakes — please tell me. If you have something to add, I’ll be grateful.</span></div>
+              <div class="info-line"><span class="ic">⭐</span><span>You can also leave a positive review for the work done — thank you!</span></div>
               <div class="info-line"><span class="ic">💤</span><span>Usually available: <b>16:00 — 23:00</b></span></div>
               <div class="info-line"><span class="ic">📌</span><span>Contact: <a class="credit-link" href="https://funpay.com/users/3472051/" target="_blank" rel="noopener">Yukimi2208 / FunPay</a></span></div>
             </div>
