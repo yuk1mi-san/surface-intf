@@ -36,6 +36,36 @@
       overflow:hidden;
     }
 
+    .cards-subtitle{
+  margin-top: 14px;
+  font-weight: 700;
+  opacity: .95;
+}
+
+.games-grid{
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.game-chip{
+  padding: 8px 12px;
+  border-radius: 999px;
+  text-decoration: none;
+  color: inherit;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+
+.game-chip:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.08);
+  border-color: rgba(255,255,255,0.16);
+}
+
+
     /* language switch */
     .lang{
       display:inline-flex;
@@ -559,7 +589,7 @@
           </div>
         </div>
 
-        <div class="panel card" id="panel-cards" role="tabpanel" aria-labelledby="tab-cards">
+       <div class="panel card" id="panel-cards" role="tabpanel" aria-labelledby="tab-cards">
 
   <div data-lang="ru">
     <h3 class="title">💎 Дешёвые карточки Steam</h3>
@@ -594,15 +624,28 @@
         </span>
       </div>
 
-      <div class="info-line" style="margin-top:8px;">
-        <span class="ic">✅</span>
-        <span><b>Как купить максимально дёшево:</b></span>
+      <!-- ДЕМО: популярные игры с дешёвыми карточками -->
+      <div class="cards-subtitle">🎮 Популярные игры, где часто дешёвые карточки</div>
+
+      <div class="games-grid">
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Portal%202" target="_blank" rel="noopener">Portal 2</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Left%204%20Dead%202" target="_blank" rel="noopener">Left 4 Dead 2</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Garry%27s%20Mod" target="_blank" rel="noopener">Garry’s Mod</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Euro%20Truck%20Simulator%202" target="_blank" rel="noopener">Euro Truck Simulator 2</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Terraria" target="_blank" rel="noopener">Terraria</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Stardew%20Valley" target="_blank" rel="noopener">Stardew Valley</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Don%27t%20Starve" target="_blank" rel="noopener">Don’t Starve</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Hotline%20Miami" target="_blank" rel="noopener">Hotline Miami</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=The%20Binding%20of%20Isaac%3A%20Rebirth" target="_blank" rel="noopener">The Binding of Isaac: Rebirth</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Subnautica" target="_blank" rel="noopener">Subnautica</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=BioShock%20Infinite" target="_blank" rel="noopener">BioShock Infinite</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Civilization%20V" target="_blank" rel="noopener">Civilization V</a>
       </div>
 
-      <div class="info-line"><span class="ic">1️⃣</span><span>Открой <b>steam.tools/cards</b> и отсортируй по цене.</span></div>
-      <div class="info-line"><span class="ic">2️⃣</span><span>Выбери игру с дешёвым набором.</span></div>
-      <div class="info-line"><span class="ic">3️⃣</span><span>Купи карточки на маркете (обычно выгоднее по одной).</span></div>
-      <div class="info-line"><span class="ic">⚠️</span><span>Проверяй комиссию и не покупай у подозрительных продавцов.</span></div>
+      <div class="info-line" style="margin-top:10px;">
+        <span class="ic">ℹ️</span>
+        <span>Цены карточек меняются — проверяй актуал на <b>steam.tools/cards</b>.</span>
+      </div>
     </div>
   </div>
 
@@ -639,19 +682,33 @@
         </span>
       </div>
 
-      <div class="info-line" style="margin-top:8px;">
-        <span class="ic">✅</span>
-        <span><b>How to buy as cheap as possible:</b></span>
+      <!-- DEMO: popular games with often cheap cards -->
+      <div class="cards-subtitle">🎮 Popular games with often cheap cards</div>
+
+      <div class="games-grid">
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Portal%202" target="_blank" rel="noopener">Portal 2</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Left%204%20Dead%202" target="_blank" rel="noopener">Left 4 Dead 2</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Garry%27s%20Mod" target="_blank" rel="noopener">Garry’s Mod</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Euro%20Truck%20Simulator%202" target="_blank" rel="noopener">Euro Truck Simulator 2</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Terraria" target="_blank" rel="noopener">Terraria</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Stardew%20Valley" target="_blank" rel="noopener">Stardew Valley</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Don%27t%20Starve" target="_blank" rel="noopener">Don’t Starve</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Hotline%20Miami" target="_blank" rel="noopener">Hotline Miami</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=The%20Binding%20of%20Isaac%3A%20Rebirth" target="_blank" rel="noopener">The Binding of Isaac: Rebirth</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Subnautica" target="_blank" rel="noopener">Subnautica</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=BioShock%20Infinite" target="_blank" rel="noopener">BioShock Infinite</a>
+        <a class="game-chip" href="https://store.steampowered.com/search/?term=Civilization%20V" target="_blank" rel="noopener">Civilization V</a>
       </div>
 
-      <div class="info-line"><span class="ic">1️⃣</span><span>Open <b>steam.tools/cards</b> and sort by price.</span></div>
-      <div class="info-line"><span class="ic">2️⃣</span><span>Pick a game with a cheap badge set.</span></div>
-      <div class="info-line"><span class="ic">3️⃣</span><span>Buy cards on the market (often cheaper individually).</span></div>
-      <div class="info-line"><span class="ic">⚠️</span><span>Check fees and avoid suspicious sellers.</span></div>
+      <div class="info-line" style="margin-top:10px;">
+        <span class="ic">ℹ️</span>
+        <span>Card prices change — check current values on <b>steam.tools/cards</b>.</span>
+      </div>
     </div>
   </div>
 
 </div>
+
 
 
         <div class="panel card" id="panel-frames" role="tabpanel" aria-labelledby="tab-frames">
