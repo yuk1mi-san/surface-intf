@@ -59,6 +59,39 @@
   transition: transform .12s ease, background .12s ease, border-color .12s ease;
 }
 
+    /* Кнопка в конце блока "Что находится на сайте" */
+#panel-frames .info-actions{
+  display: flex;
+  justify-content: center;
+  margin-top: 14px;
+}
+
+#panel-frames .fp-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+
+  color: #dbe6f7;
+  text-decoration: none;
+  font-weight: 600;
+  line-height: 1;
+
+  transition: transform .15s ease, background .15s ease, border-color .15s ease;
+}
+
+#panel-frames .fp-pill:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.09);
+  border-color: rgba(255,255,255,0.18);
+}
+
+
 .game-chip:hover{
   transform: translateY(-1px);
   background: rgba(255,255,255,0.08);
